@@ -54,6 +54,7 @@ def loop_processing(plugin: CustomPluginTemplate):
 
   plugin.obj_cache[last_lucky_ts_cache_key] = now_ts
   plugin.diskapi_save_pickle_to_data(now_ts, last_lucky_ts_file)
+  return
 
 
 def reply(plugin: CustomPluginTemplate, message: str, user: str, chat_id: str):
