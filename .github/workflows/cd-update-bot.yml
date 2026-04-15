@@ -1,0 +1,27 @@
+name: CD Update Bot
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - ver.py
+
+jobs:
+  update-bot:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Ratio1 and run bot update
+        uses: Ratio1/ratio1-setup-action@v1
+        with:
+          network: testnet
+          private_key_pem: ${{ secrets.RATIO1_PRIVATE_KEY_PEM }}
+          command: python3 ratio1_tg_bot_demo.py
+        env:
+          RATIO1_NODE: ${{ secrets.RATIO1_NODE }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
