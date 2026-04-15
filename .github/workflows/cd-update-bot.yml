@@ -18,7 +18,7 @@ jobs:
       - name: Setup Ratio1 and run bot update
         uses: Ratio1/ratio1-setup-action@v1
         with:
-          network: testnet
+          network: mainnet
           private_key_pem: ${{ secrets.RATIO1_PRIVATE_KEY_PEM }}
           command: python3 ratio1_tg_bot_demo.py
         env:
