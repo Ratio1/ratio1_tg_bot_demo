@@ -82,11 +82,7 @@ def reply(plugin: CustomPluginTemplate, message: str, user: str, chat_id: str):
     plugin.diskapi_save_pickle_to_data(users, interacted_users_file)
 
   if message.startswith("/start"):
-    return (
-      "Welcome to Ratio1 Telegram Bot Demo.\n"
-      "Use /roll to roll a dice between 1 and 6.\n"
-      "You will also receive an hourly lucky number."
-    )
+    return "Welcome to Ratio1 Telegram Bot Demo.\nUse /roll to roll a dice between 1 and 6.\nYou will also receive an hourly lucky number."
 
   if message.startswith("/ver"):
     return f"Bot version: {plugin.cfg_version}"
@@ -101,10 +97,7 @@ def reply(plugin: CustomPluginTemplate, message: str, user: str, chat_id: str):
 
     # Dice roll is generated with plugin RNG: randint(1, 7) -> [1, 6].
     rolled_number = int(plugin.np.random.randint(1, 7))
-    return (
-      f"You rolled: {rolled_number}. "
-      f"You have rolled {user_roll_count} times."
-    )
+    return f"You rolled: {rolled_number}.\nYou have rolled {user_roll_count} times."
 
   return "Supported commands: /start, /roll, /ver"
 
