@@ -13,7 +13,6 @@ Demo Telegram bot built on Ratio1, starting from the `ratio1_tg_bot` template.
 
 - `RATIO1_NODE`
 - `TELEGRAM_BOT_TOKEN`
-- `TELEGRAM_CHAT_ID`
 
 ## Deploy/update with GitHub Actions
 

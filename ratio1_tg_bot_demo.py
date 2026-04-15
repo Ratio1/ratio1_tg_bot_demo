@@ -114,13 +114,12 @@ if __name__ == "__main__":
   session = Session()
 
   node = os.getenv("RATIO1_NODE")
-  chat_id = os.getenv("TELEGRAM_CHAT_ID")
   telegram_bot_token = os.getenv("TELEGRAM_BOT_TOKEN")
   finished_with_error = False
 
   try:
-    if chat_id is None or telegram_bot_token is None:
-      raise ValueError("Please set the TELEGRAM_CHAT_ID and TELEGRAM_BOT_TOKEN environment variables.")
+    if telegram_bot_token is None:
+      raise ValueError("Please set the TELEGRAM_BOT_TOKEN environment variable.")
 
     session.P(f"Connecting to node: {node}")
     session.wait_for_node(node)
@@ -130,7 +129,6 @@ if __name__ == "__main__":
       node=node,
       name=PIPELINE_NAME,
       telegram_bot_token=telegram_bot_token,
-      chat_id=chat_id,
       message_handler=reply,
       processing_handler=loop_processing,
       process_delay=10,
