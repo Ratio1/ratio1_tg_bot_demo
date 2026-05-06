@@ -5,6 +5,8 @@ Demo Telegram bot built on Ratio1, starting from the `ratio1_tg_bot` template.
 ## Features
 
 - `/roll`: rolls a dice between 1 and 6.
+- `/watch_api <api_url>`: subscribes the user to health monitoring for an API.
+  The bot asks for a health endpoint, defaults to `/health` when the user confirms, validates the final URL, then monitors each unique API endpoint globally every 5 minutes.
 - Persists how many times each user rolled in local bot storage.
 - Every hour, all users that interacted with the bot receive a lucky number between 1 and 100.
 - `/ver`: prints current bot version.
